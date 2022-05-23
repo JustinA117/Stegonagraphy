@@ -1,4 +1,3 @@
-
 import java.awt.Color;
 
 
@@ -80,7 +79,7 @@ pixels[r][c].setBlue((col.getBlue() % 4) * 64);
 return copy; 
 }
 public static boolean canHide (Picture source, Picture secret) {
-    if(source.getHeight() == secret.getHeight() && source.getWidth() == secret.getWidth()){
+    if(source.getHeight() >= secret.getHeight() && source.getWidth() > = secret.getWidth()){
        return true;  
     }
    else{
@@ -104,6 +103,12 @@ return mySource;
 
 }
 
-
+public static Picture hidePicture2(Picture source, Picture secret){
+Picture mySource = new Picture(source);
+Picture mySecret = new Picture(secret);
+Pixel[][] pixelMySource = mySource.getPixels2D();
+Pixel[][] pixelMySecret = mySecret.getPixels2D();
+for(int )
+}
  //end of main   V   
 }
