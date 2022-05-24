@@ -1,4 +1,6 @@
 import java.awt.Color;
+import java.util.ArrayList;
+import java.awt.Point; 
 
 
 public class Stegonography {
@@ -131,4 +133,9 @@ public static isSameI(Picture picture1, Picture picture2){
     }
 
  //end of main   V   
+}
+       
+   }
+}
+  public static ArrayList<Point> findDiffe
 }
