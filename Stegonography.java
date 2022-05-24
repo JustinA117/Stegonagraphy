@@ -103,12 +103,32 @@ return mySource;
 
 }
 
-public static Picture hidePicture2(Picture source, Picture secret){
+public static Picture hidePicture2(Picture source, Picture secret, int staRow, int staCol){
 Picture mySource = new Picture(source);
 Picture mySecret = new Picture(secret);
 Pixel[][] pixelMySource = mySource.getPixels2D();
 Pixel[][] pixelMySecret = mySecret.getPixels2D();
-for(int )
+for(int rows = staRow, i = 0; rows < pixelSourceCopy.length && i < pixelSecretCopy.length; i ++{
+  for (int cols = staCol, c = 0; cols< pixelSourceCopy[0].length && c < pixelSecretCopy[0].length; c++){
+    setLow(pixelSourceCopy[rows][cols], pixelSecretCopy[r][c].getColor()); 
+  }
+} 
+  return sourceCopy; 
 }
+public static isSameI(Picture picture1, Picture picture2){
+  Picture pic1 = new Picture (picture1);
+  Picture pic2 = new Picture (picture2); 
+
+    Pixel [][] pixel1Pic = pixel1Pic.getPixels2D(); 
+    Pixel [][] pixel2Pic = pixel2Pic.getPixels2D(); 
+     for(int rows = 0, r = 0; rows < pixel1Copy.length && r < pixel2Copy.length; rows++, r++){
+                for (int cols = 0, c = 0; cols < pixel1Copy[0].length && c < pixel2Copy[0].length; cols++, c++){
+         if(pixel1Pic[rows][cols].equals((pixel2Pic[rows][cols]))){
+                        return true; 
+  }
+    else {
+      return false; 
+    }
+
  //end of main   V   
 }
