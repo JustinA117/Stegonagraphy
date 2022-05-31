@@ -81,7 +81,7 @@ pixels[r][c].setBlue((col.getBlue() % 4) * 64);
 return copy; 
 }
 public static boolean canHide (Picture source, Picture secret) {
-    if(source.getHeight() >= secret.getHeight() && source.getWidth() > = secret.getWidth()){
+    if(source.getHeight() >= secret.getHeight() && source.getWidth() >= secret.getWidth()){
        return true;  
     }
    else{
@@ -99,10 +99,10 @@ for (int rows = 0; rows < pixelMySource.length; rows++)
 for(int cols = 0; cols < pixelMySource[rows].length; cols++){
     clearLow(pixelMySource[rows][cols]);
     setLow(pixelMySource[rows][cols], pixelMySecret[rows][cols].getColor());
-}
+
 }
 return mySource;
-
+}
 }
 
 public static Picture hidePicture2(Picture source, Picture secret, int staRow, int staCol){
@@ -110,7 +110,7 @@ Picture mySource = new Picture(source);
 Picture mySecret = new Picture(secret);
 Pixel[][] pixelMySource = mySource.getPixels2D();
 Pixel[][] pixelMySecret = mySecret.getPixels2D();
-for(int rows = staRow, i = 0; rows < pixelSourceCopy.length && i < pixelSecretCopy.length; i ++{
+for(int rows = staRow, i = 0; rows < pixelSourceCopy.length && i < pixelSecretCopy.length; i++){
   for (int cols = staCol, c = 0; cols< pixelSourceCopy[0].length && c < pixelSecretCopy[0].length; c++){
     setLow(pixelSourceCopy[rows][cols], pixelSecretCopy[r][c].getColor()); 
   }
@@ -134,8 +134,15 @@ public static isSameI(Picture picture1, Picture picture2){
 
  //end of main   V   
 }
-       
+
    }
+
 }
-  public static ArrayList<Point> findDiffe
+
+
+// have to use pictures as parameters because the method is taking in pictures 
+  public static ArrayList<Points> findDifferences(Picture One, Picture two){
+
+  }
 }
+
