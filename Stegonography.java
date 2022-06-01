@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.awt.Point; 
 
 
-public class Stegonography {
+public class Stegonagraphy {
 public static void clearLow(Pixel p) {
     
     int numRed = p.getRed();
@@ -141,8 +141,49 @@ public static isSameI(Picture picture1, Picture picture2){
 
 
 // have to use pictures as parameters because the method is taking in pictures 
-  public static ArrayList<Points> findDifferences(Picture One, Picture two){
-
+  public static ArrayList<Point> findDifferences(Picture One, Picture Two) {
+    Picture Copy1 = new Picture(picture1);
+    Picture Copy2 = new Picture(picture2);
+    Pixel[][] one = Copy1.getPixels2D();
+    Pixel[][] two = Copy2.getPixels2D(); 
+    ArrayList<Point> differences = new ArrayList<Point>();
+    for (int r = 0; r < one.length; r++){
+      for (int c = 0; c < one[0].length; c++){
+        if (one[r][c].getColor().equals(two[r][c].getColor())) {
+          differences.add(new Point(r,c));
+        }
+      }
+    }
+  }
+  public static Picture showDifferentArea(Picture source, ArrayList<Point> differences){
+    Picture change = new Picture(source);
+    Pixel[][] changePixels = change.getPixels2D();
+    int maxX = differences.get(0).getX();
+    int minX = differences.get(0).getX();
+    int maxY = differences.get(0).getY();
+    int minY = differences.get(0).getY();
+    for (int i = 0; i < differences.size(); i++) {
+      Point current = differences.get(i);
+      if (current.getX() > maxX) {
+        maxX = current.getX();
+      }
+      if (current.getX()< minX){
+        minX = current.getX();
+      }
+      if (current.getY()> maxY){
+        maxY = current.getY();
+      }
+      if (current.getY()< minY){
+        minY = current.getY();
+      }
+    }
+    for (int r = minY; r <=maxY; r++){
+      for (int c = minX; c<= maxX; c++){
+        changePixels[r][c].setRed(255);
+        changePixels[r][c].setGreen(0);
+        changePixels[r][c].setBlue(0);
+      }
+    }
   }
 }
 
