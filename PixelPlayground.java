@@ -1,4 +1,6 @@
 import java.awt.Color;
+import java.awt.Point;
+import java.util.ArrayList;
 
 
 
@@ -101,7 +103,7 @@ return newPic;
 public static void main(String[] args)
 
  {
-
+Picture seagull = new Picture("seagull.jpg");
 Picture beachPic = new Picture("beach.jpg");
 
 beachPic.explore();
@@ -121,6 +123,9 @@ beachPicGrayScale.explore();
 
 Picture beachPicMirror = mirrorImageHoiz1(beachPic);
 beachPicMirror.explore(); 
+Picture beachPicDiff = showDifferentArea(beachPic,Steganography.findDifferences(beachPic,seagull));
+
+beachPicDiff.explore();
  }
 
 }
