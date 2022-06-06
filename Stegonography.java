@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.awt.Point; 
 
 
-public class Stegonagraphy {
+public class Steganography  {
 public static void clearLow(Pixel p) {
     
     int numRed = p.getRed();
@@ -25,7 +25,7 @@ public static Picture testClearLow(Picture p)
             //finds the row length. V
                 for(int c = 0; c<pixels[0].length; c++)
                 {
-                   Stegonography.clearLow(pixels[r][c]);
+                  Steganography .clearLow(pixels[r][c]);
 
                 }
 
@@ -55,7 +55,7 @@ public static Picture testSetLow(Picture p, Color col)
             //finds the row length. V
                 for(int c = 0; c<pixels[0].length; c++)
                 {
-                   Stegonography.setLow(pixels[r][c], col);
+                  Steganography .setLow(pixels[r][c], col);
                 }
         }
    return pictureYes;
@@ -90,19 +90,19 @@ public static boolean canHide (Picture source, Picture secret) {
 }
 
 public static Picture hidePicture(Picture source, Picture secret) {
-Picture mySource = new Picture(source);
-Picture mySecret = new Picture(secret);
-Pixel[][] pixelMySource = mySource.getPixels2D();
-Pixel[][] pixelMySecret = mySecret.getPixels2D();
-for (int rows = 0; rows < pixelMySource.length; rows++)
-{
-for(int cols = 0; cols < pixelMySource[rows].length; cols++){
-    clearLow(pixelMySource[rows][cols]);
-    setLow(pixelMySource[rows][cols], pixelMySecret[rows][cols].getColor());
+  Picture mySource = new Picture(source);
+  Picture mySecret = new Picture(secret);
+  Pixel[][] pixelMySource = mySource.getPixels2D();
+  Pixel[][] pixelMySecret = mySecret.getPixels2D();
+  for (int rows = 0; rows < pixelMySource.length; rows++)
+    {
+    for(int cols = 0; cols < pixelMySource[rows].length; cols++){
+          clearLow(pixelMySource[rows][cols]);
+          setLow(pixelMySource[rows][cols], pixelMySecret[rows][cols].getColor());
 
-}
-return mySource;
-}
+      }
+    }
+  return mySecret;
 }
 
 public static Picture hidePicture2(Picture source, Picture secret, int staRow, int staCol){
@@ -121,8 +121,8 @@ public static isSameI(Picture picture1, Picture picture2){
   Picture pic1 = new Picture (picture1);
   Picture pic2 = new Picture (picture2); 
 
-    Pixel [][] pixel1Pic = pixel1Pic.getPixels2D(); 
-    Pixel [][] pixel2Pic = pixel2Pic.getPixels2D(); 
+    Pixel [][] pixel1Pic = pic1.getPixels2D(); 
+    Pixel [][] pixel2Pic = pic2.getPixels2D(); 
      for(int rows = 0, r = 0; rows < pixel1Copy.length && r < pixel2Copy.length; rows++, r++){
                 for (int cols = 0, c = 0; cols < pixel1Copy[0].length && c < pixel2Copy[0].length; cols++, c++){
          if(pixel1Pic[rows][cols].equals((pixel2Pic[rows][cols]))){
@@ -154,6 +154,7 @@ public static isSameI(Picture picture1, Picture picture2){
         }
       }
     }
+    return differences; 
   }
   public static Picture showDifferentArea(Picture source, ArrayList<Point> differences){
     Picture change = new Picture(source);
@@ -184,6 +185,8 @@ public static isSameI(Picture picture1, Picture picture2){
         changePixels[r][c].setBlue(0);
       }
     }
+    return change;
+    }
   }
-}
+  
 
